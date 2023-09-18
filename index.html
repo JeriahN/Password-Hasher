@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Styles/styles.css" />
+    <title>Password Algorithm</title>
+  </head>
+  <body>
+    <h1>Password Algorithm</h1>
+    <hr />
+    <form onsubmit="submitPassword()">
+      <label for="websiteName"
+        ><p>Name of website you wish to generate password for</p></label
+      >
+      <input type="text" name="websiteName" placeholder="Website Name" />
+      <label for="name"
+        >Your name (Will not be used in strong password, it is used to
+        encrypt)</label
+      >
+      <input type="text" name="name" placeholder="Your Name" />
+      <label for="firstNumberOfPassword"
+        >First Number to add to generated password (Must be 2 digits)</label
+      >
+      <input
+        type="text"
+        name="firstNumberOfPassword"
+        placeholder="First Number (2 Digits)"
+      />
+      <label for="secondNumberOfPassword"
+        >Second Number to add to generated password (Must be 2 digits)</label
+      >
+      <input
+        type="text"
+        name="secondNumberOfPassword"
+        placeholder="Second Number (2 Digits)"
+      />
+      <button type="submit" onclick="submitPassword()">
+        <a id="generateButton">Generate</a>
+      </button>
+    </form>
+    <script src="./Javascript/main.js"></script>
+  </body>
+</html>
