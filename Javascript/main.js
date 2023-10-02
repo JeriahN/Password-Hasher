@@ -96,8 +96,8 @@ function generatePassword() {
     }
 
     // Create a 4 letter hash from the website name and username
-    // Create a 4 letter hash from the website name and username
     let hash = websiteName.substring(0, 2) + username.substring(0, 2);
+    console.log("hash: " + hash);
 
     // Use Caesar Cipher to shift the hash by the amount of steps variable
     let alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
@@ -111,7 +111,9 @@ function generatePassword() {
 
       // Check if the letter is found in the alphabet
       if (index !== -1) {
-        cipheredHash += shiftedAlphabet[index];
+        // Apply Caesar cipher to the letter
+        let shiftedLetter = shiftedAlphabet[index];
+        cipheredHash += shiftedLetter;
       } else {
         // If the letter is not found, add it as is (no shift)
         cipheredHash += letter;
