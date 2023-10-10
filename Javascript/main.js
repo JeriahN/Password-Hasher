@@ -38,6 +38,12 @@ function urlValidity() {
   }
 }
 
+function copyPassword(textToCopy) {
+  // Send textToCopy to clipboard
+  navigator.clipboard.writeText(textToCopy);
+  console.log("Copied Password: " + textToCopy);
+}
+
 function generatePassword() {
   // Generate Password based on url values
   if (urlValidity(true)) {
@@ -127,7 +133,33 @@ function generatePassword() {
     let password =
       websiteName + hash + firstNumberOfPassword + secondNumberOfPassword;
 
+    console.log("password: " + password);
+
+    // If Password Contains Vowels, add a random symbol to the end of the password
+    let vowels = /[aeiou]/gi;
+    if (password.match(vowels)) {
+      let symbols = "!@#$%^&*()_+";
+      let randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+      password += randomSymbol;
+    }
+    console.log("password: " + password);
+
+    let capitalizedPassword = "";
+    for (let i = 0; i < password.length; i++) {
+      if (i % 2 === 0) {
+        capitalizedPassword += password[i].toUpperCase();
+      } else {
+        capitalizedPassword += password[i];
+      }
+    }
+    password = capitalizedPassword;
+
+    console.log("capitalizedPassword: " + capitalizedPassword);
+
     document.getElementById("generateButton").innerHTML = password;
+
+    // Copy the password to clipboard
+    copyPassword(password);
   } else {
     console.log("Values are invalid, please try again");
   }
